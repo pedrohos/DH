@@ -48,7 +48,7 @@ class Alice:
         f.write("B= " + str(self.B) + "\n")
         f.close()
 
-    def gravar_num_e_chave_secretos(self):
+    def mostrar_chave_secreta(self):
         f = open(self.caminho_chave_privada, "a+")
         chave_secreta = (self.B**self.numero_secreto_a)%self.p
         f.write("A chave criptografada = " + str(chave_secreta) + "\n")

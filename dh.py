@@ -57,7 +57,7 @@ bob.ler_A()
 
 # Os números secretos são salvos para provar que mesmo podendo ser diferentes, a chave privada é idêntica
 # Ada e Bob vão gravar localmente sua chave privada, que será usada para descriptografar as mensagens
-alice.gravar_num_e_chave_secretos()
-bob.gravar_num_e_chave_secretos()
+alice.mostrar_chave_secreta()
+bob.mostrar_chave_secreta()
 
 
