@@ -34,14 +34,11 @@ class Bob:
     def ler_A(self):
         with open(self.tf) as f:
             linhas = f.readlines()
+            linhas = [e.replace('A= ', self.SIMBOLO) for e in linhas]
 
-            lista_invertida = [linhas[i] for i in range(len(linhas) - 1, -1, -1)]
-            lista_invertida = [e.replace('\n', '') for e in lista_invertida]
-            lista_invertida = [e.replace('A= ', self.SIMBOLO) for e in lista_invertida]
-
-            for i in range(len(lista_invertida)):
-                if lista_invertida[i][0] == self.SIMBOLO:
-                    self.A = int(lista_invertida[i][1:])
+            for i in range(len(linhas)):
+                if linhas[i][0] == self.SIMBOLO:
+                    self.A = int(linhas[i][1:])
                     break
         
         f = open(self.caminho_chave_privada, "a+")
