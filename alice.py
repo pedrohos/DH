@@ -12,7 +12,7 @@ class Alice:
         self.tf = tf
         self.caminho_chave_privada = ccp
 
-        self.numero_secreto_a = random.randrange(1, p - 1)
+        self.numero_secreto_a = random.randrange(0, p - 1)
 
         f = open(ccp, "a+")
         f.write("Meu gerador = " + str(self.g) + "\n")
@@ -43,6 +43,10 @@ class Alice:
                 if lista_invertida[i][0] == self.SIMBOLO:
                     self.B = int(lista_invertida[i][1:])
                     break
+        
+        f = open(self.caminho_chave_privada, "a+")
+        f.write("B= " + str(self.B) + "\n")
+        f.close()
 
     def gravar_num_e_chave_secretos(self):
         f = open(self.caminho_chave_privada, "a+")

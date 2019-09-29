@@ -10,20 +10,18 @@ def seleciona_primo():
 def calcula_raiz_primitiva_e_primo():
     while True:
         p = seleciona_primo()
-        for g in range(2,p):
-            coprimos = set(range(1,p))
+        fi_p = p - 1
+        for g in range(2, p):
             for i in range(1, p):
-                try:
-                    coprimos.remove((g**i) % p)
-                except:
+                if g**i%p == 1:
+                    if i == fi_p:
+                        f = open("canal.txt", "w")
+                        f.write("O gerador = " + str(g))
+                        f.write("\nO primo = " + str(p) + "\n")
+                        f.close()
+                        return g,p
                     break
-            if len(coprimos) == 0:
-                f = open("canal.txt", "w")
-                f.write("O gerador = " + str(g))
-                f.write("\nO primo = " + str(p) + "\n")
-                f.close()
-                return g,p
-     
+
 def limpa_canais(canal, cppa, cppb):
     open(canal, 'w').close()
     open(cppa, 'w').close()

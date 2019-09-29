@@ -12,7 +12,7 @@ class Bob:
         self.tf = tf
         self.caminho_chave_privada = ccp
 
-        self.numero_secreto_b = random.randrange(1, p - 1)
+        self.numero_secreto_b = random.randrange(0, p - 1)
 
         f = open(ccp, "a+")
         f.write("Meu gerador = " + str(self.g) + "\n")
@@ -43,6 +43,10 @@ class Bob:
                 if lista_invertida[i][0] == self.SIMBOLO:
                     self.A = int(lista_invertida[i][1:])
                     break
+        
+        f = open(self.caminho_chave_privada, "a+")
+        f.write("A= " + str(self.A) + "\n")
+        f.close()
 
     def gravar_num_e_chave_secretos(self):
         f = open(self.caminho_chave_privada, "a+")
