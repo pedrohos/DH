@@ -11,7 +11,7 @@ def calcula_raiz_primitiva_e_primo():
     while True:
         p = seleciona_primo()
         fi_p = p - 1
-        for g in range(2, p):
+        for g in range(1, p):
             for i in range(1, p):
                 if g**i%p == 1:
                     if i == fi_p:
